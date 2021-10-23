@@ -7,11 +7,11 @@ export const AuthContext = createContext();
 
 export default function AuthProvider({children}) {
     //const [user, setUser] = useState(null);
-    const history = useHistory()
+    const history = useHistory();
     const [user, setUser] = useState(null);
 
     const login = (userCredentials, fromLocation) => {
-        setUser({id:1, role:roles.regular});
+        setUser({ id:1, name: 'Jorge', email: 'jmarti1a2@gmail.com', role: roles.admin });
         if(fromLocation) {
             history.push(fromLocation);
         }
@@ -19,12 +19,21 @@ export default function AuthProvider({children}) {
     
     const logout = () => setUser(null);
 
+    const updateUser = (data)=>{
+        setUser({
+            ...user,
+            ...data
+
+        })
+    }
+
 
     const isLogged = () => !!user;
     const hasRole = (role) => user?.role === role;
 
     const contextValue = { 
-        user,   
+        user, 
+        updateUser,  
         isLogged,
         hasRole,
         login,

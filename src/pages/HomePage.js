@@ -11,7 +11,7 @@ export default function HomePage() {
                     <p>Gestiona ventas y productos</p>
                     <div>
                         <Link to={routes.login}>Ingresa</Link> 
-                        <Button as={Link} to={routes.register}>Crea una cuenta</Button>             
+                        <Button as={Link} to={routes.register} className="ml-1">Crea una cuenta</Button>             
                     </div>
                 </Col>
                 <Col md={{ span: 6, offset: 3 }} className="text-center">                 
